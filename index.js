@@ -87,10 +87,75 @@ refridgeratorKeys : function() {
 
 console.log(refridgerator.refridgeratorKeys())
 
-/* 4.Pasipraktikuokite objekto destruktūrizavimą ir iš objektorefridgeratorį const priskirkyte objekto makeir model. (Nenaudokite dot notation, t.y object.value).  */
 
-/* 5.Susikurkite html input fieldą tekstui. Darykite event listener onBlurir event listener viduje pabandykite nuskaityti ir į consolę išloginti reikšmę tiek per event.target tiek su this keyword.
+/* 4.Pasipraktikuokite objekto destruktūrizavimą ir iš objekto refridgeratorį const priskirkyte objekto make ir model. (Nenaudokite dot notation, t.y object.value).  */
+
+const refridgerator = {
+  color : 'black',
+  fridgeVolume : 212,
+  freezerVolume : 77,
+  WiFi : false,
+  make : 'Liebherr',
+  model : 'ICBn-5112',
+  isOn : false,
+  isTurnedOn : function() { 
+  if ( refridgerator.isOn === true ) 
+  { return 'refridgerator is on'  }
+  else {
+    return 'refridgerator is off'
+  }
+},
+
+ refridgeValues : function() {
+
+   return 'Color: ' + this.color + '\n' + 'Fridge volume: ' + this.fridgeVolume + '\n' + 'Freezer volume: ' + this.freezerVolume + '\n' 
+  
+}, // nebaigta, bet esme yra padaryta
+
+
+refridgeratorKeys : function() { 
+
+  return Object.keys(refridgerator)
+
+},
+
+}
+
+const { make: makeName, model: modelName } = refridgerator;
+
+
+console.log(modelName)
+console.log(makeName)
+console.log(makeName + ' ' + modelName)
+
+
+/* 5.Susikurkite html input fieldą tekstui. Darykite event listener onBlur ir event listener viduje pabandykite nuskaityti
+ir į consolę išloginti reikšmę tiek per event.target tiek su this keyword.
 Callback funkciją darykite paprastą named funkciją (pvz. function fn(e) {console.log(e.target.value)})Ar gaunama ta pati reikšmė? */
+
+<input type="text" />
+  
+  const itemInput = document.querySelector("input[type=text]");
+
+  itemInput.addEventListener("blur", fn);
+  
+  function fn(e) {
+    console.log(e.target.value);
+    
+  }
+
+  const itemInput = document.querySelector("input[type=text]");
+
+itemInput.addEventListener("blur", fn);
+
+function fn(e) {
+
+this.itemInput = itemInput
+
+  console.log(this.itemInput);
+  
+}
+
 
 /* 6.Papildomaužduotis. Susikurkite objektą elevator. Objektui nustatykite flooryra 1. Taip pat objektas turėsmetodą moveToDestination.
 moveToDestinationmetodas kas sekundę turi pakeisti aukštą padidindamas arba sumažindamas jį vienetu(patikrinti ar inkrementuoti ar dekrementuoti)
